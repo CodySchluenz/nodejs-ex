@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import http from 'http';
 import https from 'https';
+var fs = require('fs');
 //let http = require('http');
 //let https = require('https');
 //let morgan = require('morgan');
