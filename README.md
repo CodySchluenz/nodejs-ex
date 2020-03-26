@@ -109,11 +109,13 @@ Looking at the repo, you'll notice three files in the openshift/template directo
 	│       └── nodejs-mongodb-persistent.json
 	├── package.json
 	├── README.md
-	├── server.js
 	├── tests
-	│   └── app_test.js
-	└── views
-	    └── index.html
+	│   └── app_test.ts
+	├── views
+	│   └── index.html
+	└── src
+	    └── server.ts
+            
 
 We can create the the new app from the `nodejs.json` template by using the `-f` flag and pointing the tool at a path to the template file:
 
