@@ -8,14 +8,15 @@ let https = require('https');
 let morgan = require('morgan');
 let express = require('express')
 let app = express();
-let port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 4200;
+let port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 4200;//4200
 let ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';//0.0.0.1
 
-let testSecret = process.env.sslCert;
+let testSecret = process.env.sslcert;
 let test = process.env.codystestsecret ;
 let potato = 'potato';
 console.log(testSecret);
 console.log(test);
+console.log('----------')
 
 
 //http.createServer(app).listen(80);
