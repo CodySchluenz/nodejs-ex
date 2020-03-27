@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Node.js sample app for OpenShift 3",
   "main": "src/server.ts",
+  "type": "module",
   "types": "dist/src/server.d.ts",
   "dependencies": {
     "@types/express": "^4.17.3",
