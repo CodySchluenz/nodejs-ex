@@ -1,15 +1,21 @@
-import express from 'express';
-import morgan from 'morgan';
-import http from 'http';
-import https from 'https';
+//import express from 'express';
+//import morgan from 'morgan';
+//import http from 'http';
+//import https from 'https';
 var fs = require('fs');
-//let http = require('http');
-//let https = require('https');
-//let morgan = require('morgan');
-//let express = require('express')
+let http = require('http');
+let https = require('https');
+let morgan = require('morgan');
+let express = require('express')
 let app = express();
 let port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 4200;
 let ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';//0.0.0.1
+
+let testSecret = process.env.sslCert;
+let test = process.env.codystestsecret ;
+let potato = 'potato';
+console.log(testSecret);
+console.log(test);
 
 
 //http.createServer(app).listen(80);
@@ -23,15 +29,15 @@ app.use(morgan('combined'))
 
 // Routes HTTP GET requests to the specified path and includes a callback.
 app.get('/', (_req, res) => {
-    res.render('index.html', { pageCountMessage: null });
+    res.render('index.html', { pageCountMessage: null,testSecret,test,potato });
     //res.send('Hello World!')
 })
 
 
 // Binds and listens for connections on the specified host and port. identical to Node's http.Server.listen().
 //app.listen(port, () => console.log(`Example app listening on port ${port}!`))
-https.createServer(options, app).listen(port)
-//app.listen(port, ip)
+//https.createServer(options, app).listen(port)
+app.listen(port, ip)
 console.log('Server running on http://%s:%s', ip, port);
 
 // error handling
