@@ -20,7 +20,7 @@ console.log('----------')
 
 const options = {
     key: tlsKey,//fs.readFileSync('src/tlskey.pem'),
-    certs: tlsCrt//fs.readFileSync('src/tlscert.pem')
+    cert: tlsCrt//fs.readFileSync('src/tlscert.pem')
 };
 console.log(options);
 
