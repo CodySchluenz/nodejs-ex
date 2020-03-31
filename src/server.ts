@@ -24,7 +24,7 @@ console.log('----------')
 console.log('----------')
 console.log('hard coded port' + 8443);
 console.log('process.env.PORT' + process.env.PORT);
-console.log('process.env.OPENSHIFT_NODEJS_PORT' + process.env.OPENSHIFT_NODEJS_PORTP);
+console.log('process.env.OPENSHIFT_NODEJS_PORT' + process.env.OPENSHIFT_NODEJS_PORT);
 
 console.log('hard coded ip' + '127.0.0.1');
 console.log('process.env.IP' + process.env.IP);
