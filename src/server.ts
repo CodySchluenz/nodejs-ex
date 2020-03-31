@@ -32,8 +32,8 @@ console.log('process.env.OPENSHIFT_NODEJS_IP ' + process.env.OPENSHIFT_NODEJS_IP
 console.log('----------')
 
 const options = {
-    key: fs.readFileSync('src/tlskey.pem') || tlsKey,
-    cert: fs.readFileSync('src/tlscert.pem') || tlsCrt
+    key: tlsKey,//fs.readFileSync('src/tlskey.pem') ||,
+    cert: tlsCrt// fs.readFileSync('src/tlscert.pem') || 
 };
 
 // sets the render engine for express and uses morgan as a HTTP request logger.
