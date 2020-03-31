@@ -14,15 +14,27 @@ let tlsKey = process.env.tlsKey;
 let tlsCrt = process.env.tlsCrt;
 
 console.log('----------')
+console.log('tlsKey')
 console.log(tlsKey);
+
+console.log('tlsCrt')
 console.log(tlsCrt);
+console.log('----------')
+
+console.log('----------')
+console.log('hard coded port' + 8443);
+console.log('process.env.PORT' + process.env.PORT);
+console.log('process.env.OPENSHIFT_NODEJS_PORT' + process.env.OPENSHIFT_NODEJS_PORTP);
+
+console.log('hard coded ip' + '127.0.0.1');
+console.log('process.env.IP' + process.env.IP);
+console.log('process.env.OPENSHIFT_NODEJS_IP' + process.env.OPENSHIFT_NODEJS_IP);
 console.log('----------')
 
 const options = {
     key: tlsKey,//fs.readFileSync('src/tlskey.pem'),
     cert: tlsCrt//fs.readFileSync('src/tlscert.pem')
 };
-console.log(options);
 
 // sets the render engine for express and uses morgan as a HTTP request logger.
 app.engine('html', require('ejs').renderFile);
