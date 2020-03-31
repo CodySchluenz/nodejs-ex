@@ -22,18 +22,18 @@ console.log(tlsCrt);
 console.log('----------')
 
 console.log('----------')
-console.log('hard coded port' + 8443);
-console.log('process.env.PORT' + process.env.PORT);
-console.log('process.env.OPENSHIFT_NODEJS_PORT' + process.env.OPENSHIFT_NODEJS_PORT);
+console.log('hard coded port ' + 8443);
+console.log('process.env.PORT ' + process.env.PORT);
+console.log('process.env.OPENSHIFT_NODEJS_PORT ' + process.env.OPENSHIFT_NODEJS_PORT);
 
-console.log('hard coded ip' + '127.0.0.1');
-console.log('process.env.IP' + process.env.IP);
-console.log('process.env.OPENSHIFT_NODEJS_IP' + process.env.OPENSHIFT_NODEJS_IP);
+console.log('hard coded ip ' + '127.0.0.1');
+console.log('process.env.IP ' + process.env.IP);
+console.log('process.env.OPENSHIFT_NODEJS_IP ' + process.env.OPENSHIFT_NODEJS_IP);
 console.log('----------')
 
 const options = {
-    key: tlsKey,//fs.readFileSync('src/tlskey.pem'),
-    cert: tlsCrt//fs.readFileSync('src/tlscert.pem')
+    key: fs.readFileSync('src/tlskey.pem') || tlsKey,
+    cert: fs.readFileSync('src/tlscert.pem') || tlsCrt
 };
 
 // sets the render engine for express and uses morgan as a HTTP request logger.
@@ -47,7 +47,7 @@ app.get('/', (_req, res) => {
 })
 
 
-//let httpServer = http.createServer(app);
+let httpServer = http.createServer(app);
 let httpsServer = https.createServer(options, app);
 
 // Binds and listens for connections on the specified host and port. identical to Node's http.Server.listen().
@@ -56,10 +56,11 @@ let httpsServer = https.createServer(options, app);
 httpsServer.listen(port, ip);
 
 //http server
-//httpServer.listen(port, ip);
+httpServer.listen(4000, ip);
 
 
-console.log('Server running on https://%s:%s', ip, port);
+console.log('HTTPS Server running on https://%s:%s', ip, port);
+console.log('HTTP Server running on http://%s:%s', ip, 4000);
 
 // error handling
 app.use(function (err, _req, res, _next) {
