@@ -9,7 +9,7 @@ let morgan = require('morgan');
 let express = require('express')
 let app = express();
 let port = parseInt(process.env.PORT) || parseInt(process.env.OPENSHIFT_NODEJS_PORT) || 8443;
-let ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';//0.0.0.1
+let ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';//127.0.0.1
 let tlsKey = process.env.tlsKey;
 let tlsCrt = process.env.tlsCrt;
 
