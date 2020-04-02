@@ -12,7 +12,7 @@ let port = parseInt(process.env.PORT) || parseInt(process.env.OPENSHIFT_NODEJS_P
 let ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';//127.0.0.1
 let tlsKey = process.env.tlsKey;
 let tlsCrt = process.env.tlsCrt;
-
+/*
 console.log('----------')
 console.log('tlsKey')
 console.log(tlsKey);
@@ -26,11 +26,11 @@ console.log('hard coded port ' + 8443);
 console.log('process.env.PORT ' + process.env.PORT);
 console.log('process.env.OPENSHIFT_NODEJS_PORT ' + process.env.OPENSHIFT_NODEJS_PORT);
 
-console.log('hard coded ip ' + '127.0.0.1');
+console.log('hard coded ip ' + '0.0.0.0');
 console.log('process.env.IP ' + process.env.IP);
 console.log('process.env.OPENSHIFT_NODEJS_IP ' + process.env.OPENSHIFT_NODEJS_IP);
 console.log('----------')
-
+*/
 const options = {
     key: tlsKey,//fs.readFileSync('src/tlskey.pem') ||,
     cert: tlsCrt// fs.readFileSync('src/tlscert.pem') || 
@@ -42,7 +42,7 @@ app.use(morgan('combined'))
 
 // Routes HTTP GET requests to the specified path and includes a callback.
 app.get('/', (_req, res) => {
-    res.render('index.html', { pageCountMessage: null, tlsKey, tlsCrt });
+    res.render('index.html', { pageCountMessage: null });
     //res.send('Hello World!')
 })
 
